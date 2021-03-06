@@ -18,7 +18,10 @@ module.exports = {
   // Matches parent folder `__tests__` and filename
   // should contain `test` or `spec`.
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
 
   // Module file extensions for importing
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node', 'scss'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 }

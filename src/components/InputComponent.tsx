@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { searchForPrime } from '../store/actions/primeActions'
-// import '../styles/inputComponentStyles.scss'
+import '../styles/inputComponentStyles.scss' //Commented out of previous commit because of errors when running unit tests
 import makeToast from '../utils/Toaster'
 
 const numberRegex = /^[0-9\b]+$/
