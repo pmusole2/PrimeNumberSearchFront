@@ -1,27 +1,34 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { searchForPrime } from '../store/actions/primeActions'
-import '../styles/inputComponentStyles.scss'
+// import '../styles/inputComponentStyles.scss'
 import makeToast from '../utils/Toaster'
 
 const numberRegex = /^[0-9\b]+$/
 
-const InputComponent = () => {
+export interface Props {
+  onChangeInput: (input: string) => void
+  onSubmit: (input: string) => void
+}
+
+const InputComponent = (props: Props) => {
   const [input, setInput] = React.useState('')
   const dispatch = useDispatch()
   const onChangehandler: (e: any) => void = e => {
     let numbers = e.target.value
     if (numbers === '' || numberRegex.test(numbers)) {
       setInput(numbers)
+      props.onChangeInput(numbers)
     }
   }
   return (
-    <form className='main-form'>
+    <form className='main-form' data-testid='search-form'>
       <div className='input-container'>
         <input
           type='text'
-          name='number'
+          name='input'
           value={input}
+          data-testid='number-input'
           id='number'
           placeholder='Enter any three numbers'
           pattern='[0-9]{3}'
@@ -40,9 +47,11 @@ const InputComponent = () => {
             }
             e.preventDefault()
             dispatch(searchForPrime(input))
+            props.onSubmit(input)
             setInput('')
           }}
           className='submit'
+          data-testid='submit'
         >
           SEARCH
         </button>

@@ -12,4 +12,6 @@
 
 5.  This command will start the project and a new browser window will open.
 
-# BACK END REPO -
+6.  To Test this project run the command "npm run test:watch"
+
+# BACK END REPO - https://github.com/pmusole2/PrimeNumberSearchBackEnd.git
